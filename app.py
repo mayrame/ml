@@ -26,7 +26,7 @@ st.title("Analyseur de Malware")
 st.write("Déposez un fichier .exe pour savoir s'il est malveillant.")
 
 # Chargement du modèle
-model = joblib.load('/Users/apple/Documents/MasterIADB/IA/lesnoteb/malware/model.pkl')
+model = joblib.load('model.pkl')
 
 uploaded_file = st.file_uploader("Choisir un exécutable...", type=["exe"])
 
