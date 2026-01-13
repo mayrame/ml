@@ -25,7 +25,7 @@ def extract_features(exe_path):
 st.title("Analyseur de Malware")
 st.write("Déposez un fichier .exe pour savoir s'il est malveillant.")
 
-# Chargement du modèle
+#  On charge le modèle 
 model = joblib.load('model.pkl')
 
 uploaded_file = st.file_uploader("Choisir un exécutable...", type=["exe"])
@@ -36,13 +36,13 @@ if uploaded_file is not None:
         f.write(uploaded_file.getbuffer())
     
     try:
-        # On cree la variable data pour extraire les features
+        #On cree la variable data pour extraire les features
         data = extract_features("temp.exe")
         
-        # Prédiction 
+        #Prédiction 
         prediction = model.predict([data])
         
-        # Résultat
+        #Résultat
         if prediction[0] == 1:
             st.success(" RÉSULTAT : Ce fichier est LEGITIMATE")
         else:
